@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F8E5"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title="Zakat Gold Calculator"
+        app:titleTextColor="@android:color/white"/>
+
+    <!-- INPUT CARD -->
+    <LinearLayout
+        android:id="@+id/inputCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:elevation="8dp"
+        android:background="@drawable/green_card"
+        android:layout_marginTop="40dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Gold Weight -->
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gold Weight (grams)"
+            android:inputType="number"
+            android:padding="16dp"
+            android:background="@drawable/input_field_yellow"
+            android:textColor="#3C3C3C"
+            android:textColorHint="#80707070"/>
+
+        <!-- Gold Price -->
+        <EditText
+            android:id="@+id/etValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gold Price (RM/gram)"
+            android:inputType="number"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/input_field_yellow"
+            android:textColor="#3C3C3C"
+            android:textColorHint="#80707070"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <RadioGroup
+                android:id="@+id/radioGroupType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/rbKeep"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="KEEP"
+                    android:gravity="center"
+                    android:textColor="#3C6E47"
+                    android:button="@null"
+                    android:background="@drawable/radio_unselected"
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbWear"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="WEAR"
+                    android:gravity="center"
+                    android:textColor="#3C6E47"
+                    android:button="@null"
+                    android:background="@drawable/radio_unselected"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:layout_marginStart="10dp"/>
+            </RadioGroup>
+
+            <!-- Single info icon -->
+            <ImageView
+                android:id="@+id/infoIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_info"
+                android:contentDescription="Info"/>
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:background="@drawable/btn_calcreset"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_calcreset"
+            android:text="Reset"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- RESULT CARD HIDDEN -->
+    <LinearLayout
+        android:id="@+id/resultCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:elevation="12dp"
+        android:background="@drawable/result_card_bg"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/inputCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvTotalValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Gold Value: -"
+            android:textColor="#1B5E20"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="12dp"
+            android:gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C8E6C9"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvWeightMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gold Weight - Uruf: -"
+                android:textColor="#388E3C"
+                android:textSize="16sp"
+                android:paddingBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvZakatPayable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zakat Payable Amount: -"
+                android:textColor="#388E3C"
+                android:textSize="16sp"
+                android:paddingBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvTotalZakat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Zakat (2.5%): -"
+                android:textColor="#1B5E20"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

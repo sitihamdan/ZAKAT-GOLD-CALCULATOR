@@ -1,0 +1,19 @@
+<resources>
+    <!-- Light mode colors -->
+    <color name="my_light_primary">#0C940E</color>
+    <color name="my_light_primaryDark">#087A0A</color>
+    <color name="my_light_background">#FFFFFF</color>
+    <color name="my_light_textcolor">#000000</color>
+
+    <!-- Dark mode colors -->
+    <color name="my_dark_primary">#0C940E</color>
+    <color name="my_dark_primaryDark">#087A0A</color>
+    <color name="my_dark_background">#121212</color>
+    <color name="my_dark_textcolor">#FFFFFF</color>
+
+    <!-- Popup -->
+    <color name="popup_bg_light">#FFFFFF</color>
+    <color name="popup_text_light">#1B5E20</color>
+    <color name="popup_bg_dark">#1B5E20</color>
+    <color name="popup_text_dark">#FFFFFF</color>
+</resources>
